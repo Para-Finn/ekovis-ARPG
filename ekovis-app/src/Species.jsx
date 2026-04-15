@@ -1,17 +1,7 @@
 
-function Species(){
-
-    const hum = "Humans";
-    const ath = "Athadern";
-    const kry = "Krylem";
-
-    return(
-        <ul>
-            <li>Raptor</li>
-            <li>{ath}</li>
-            <li>{kry.toUpperCase()}</li>
-        </ul>
-    );
+function Species() {
+    
+    return(<p>This is the playable species page :P</p>);
 }
 
 export default Species

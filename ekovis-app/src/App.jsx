@@ -1,15 +1,22 @@
-import Header from "./Hedder";
-import Footer from "./Footer";
-import Species from "./Species";
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Home from './Home.jsx';
+import Species from './Species.jsx';
 
 function App() {
   
   return(
-    <> 
-      <Header/>
-      <Species/>
-      <Footer/>
-    </>
+    <BrowserRouter>
+        <h1>Test</h1>
+        <nav>
+          <Link to="/">Home</Link> |{" "}
+          <Link to="/species">Playable Species</Link>
+        </nav>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/species" element={<Species />} />
+        </Routes>
+    </BrowserRouter>
   );
 }
 
