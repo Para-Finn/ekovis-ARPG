@@ -17,6 +17,6 @@ connectToDb((err) => {
 }) 
 
 // routes
-app.get('/playerchara', (req, res) => {
+app.get('/player_characters_api', (req, res) => {
     res.json({mssg: 'welcome to the api :3c'})
 })
