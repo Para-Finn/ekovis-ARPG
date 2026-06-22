@@ -1,3 +1,6 @@
 #rapterTaits {
-    visibility: hidden;
+    display: none;
+}
+#krylemTraits {
+    display: none;
 }

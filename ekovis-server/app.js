@@ -1,22 +1,13 @@
-const express = require('express')
-const { connectToDb, getDb } = require('./db')
+require('dotenv').config();
 
-// init app & middleware
-const app = express()
+const express = require('express');
+const app = express();
+const PORT = 5000 || process.env.PORT;
 
-// db connection
-let db
+app.use(express.static('ekovis-app'));
 
-connectToDb((err) => {
-    if(!err){
-        app.listen(3000, () => {
-            console.log('app listening on port 3000')
-        })
-        db = getDb()
-    }
-}) 
+app.use('/', require('./routes/main'));
 
-// routes
-app.get('/player_characters_api', (req, res) => {
-    res.json({mssg: 'welcome to the api :3c'})
-})
+app.listen(PORT, () => {
+    console.log('App listeing on port 5000');
+});
