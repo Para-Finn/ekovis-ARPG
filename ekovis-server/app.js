@@ -1,10 +1,10 @@
 require('dotenv').config();
 
 const express = require('express');
+const mongoose = require('mongoose');
+
 const app = express();
 const PORT = 5000 || process.env.PORT;
-
-app.use(express.static('ekovis-app'));
 
 app.use('/', require('./routes/main'));
 
