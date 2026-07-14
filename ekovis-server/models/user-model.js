@@ -1,8 +1,13 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const { ObjectId } = require('mongodb');
 
 const userSchema = new Schema(
     {
+        _id: {
+            type: Schema.Types.ObjectId
+        },
+
         username: {
             type: String,
             required: true,
@@ -14,28 +19,12 @@ const userSchema = new Schema(
             required: true
         },
 
-        avatar: {
-            type: String,
-            default: ""
-        },
-
         role: {
             type: String,
             required: true,
             default: 'member'
-        },
-
-        currency: {
-            type: Number,
-        },
-
-        ownedCharacters: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'user'
-            }
-        ]
+        }
     }
 );
 
-module.exports = mongoose.model('user', userSchema);
+module.exports = mongoose.model('users', userSchema);
