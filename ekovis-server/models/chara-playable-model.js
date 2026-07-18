@@ -1,16 +1,11 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
-const { ObjectId } = require('mongodb');
+const Schema = mongoose.Schema;
 
 const charaPlayableSchema = new Schema(
     {
-        _id: {
-            type: ObjectId
-        },
-
         name: {
             type: String,
-            default: "",
+            default: "Your new fella ;3",
             maxlength: 50
         },
 
@@ -27,20 +22,16 @@ const charaPlayableSchema = new Schema(
 
         xp: {
             type: Number,
-            default: 0
-        },
-
-        reference: {
-            type: String,
-            default: "",
+            default: 0,
             required: true
         },
 
         featrued: {
             type: Boolean,
-            default: false
+            default: false,
+            required: true
         }
-    }
+    }, {timestamps: true}
 );
 
 module.exports = mongoose.model('chara_playable', charaPlayableSchema);
