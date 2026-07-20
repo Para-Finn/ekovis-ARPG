@@ -1,32 +1,16 @@
-const express = require('express');
-const Chara = require('../models/chara-playable-model');
-const router = express.Router();
+const express = require('express')
+const { getAllChara, getOneChara, createNewChara, deleteChara, updateChara } = require('../controllers/characters_controller')
 
-router.get('/',  (req, res) => {
-    res.json({mssg: 'I am getting all existing characters'})
-});
+const router = express.Router()
 
-router.get('/:id',  (req, res) => {
-    res.json({mssg: 'I am getting a particular character'})
-});
+router.get('/', getAllChara)
 
-router.post('/', async (req, res) => {
-    const {name, species, level, xp, featrued} = req.body;
+router.get('/:id', getOneChara)
 
-    try {
-        const player_chara = await Chara.create({name, species, level, xp, featrued}) 
-        res.status(200).json(player_chara)
-    } catch (error) {
-        res.status(400).json({error: error.message})
-    }
-});
+router.post('/', createNewChara)
 
-router.delete('/:id',  (req, res) => {
-    res.json({mssg: 'I deleated this character'})
-});
+router.delete('/:id', deleteChara)
 
-router.patch('/:id',  (req, res) => {
-    res.json({mssg: 'This character is updated!'})
-});
+router.patch('/:id', updateChara)
 
 module.exports = router;
