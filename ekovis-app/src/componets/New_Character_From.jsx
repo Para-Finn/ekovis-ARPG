@@ -40,12 +40,31 @@ const NewCharaFrom = () => {
                 value = {name}
             /> <br/>
 
-            <label>Species: </label>
+            <label>Species: </label> <br/>
             <input
-                type="text"
+                type="radio"
                 onChange = {(e) => setSpecies(e.target.value)} 
-                value = {species}
-            /> <br/>
+                name = {species}
+                value = "Athadern"
+            /><label>Athadern</label> <br/>
+            <input
+                type="radio"
+                onChange = {(e) => setSpecies(e.target.value)} 
+                name = {species}
+                value = "Krylem"
+            /><label>Krylem</label> <br/>
+            <input
+                type="radio"
+                onChange = {(e) => setSpecies(e.target.value)} 
+                name = {species}
+                value = "Rapter"
+            /><label>Rapter</label> <br/>
+            <input
+                type="radio"
+                onChange = {(e) => setSpecies(e.target.value)} 
+                name = {species}
+                value = "Human"
+            /><label>Human</label> <br/>
 
             <button>Create character!</button>
         </form>
