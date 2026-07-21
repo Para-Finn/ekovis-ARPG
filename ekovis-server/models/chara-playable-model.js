@@ -31,7 +31,7 @@ const charaPlayableSchema = new Schema(
             default: false,
             required: true
         }
-    }, {timestamps: true}
-);
+    }
+)
 
-module.exports = mongoose.model('chara_playable', charaPlayableSchema);
+module.exports = mongoose.model('chara_playable', charaPlayableSchema)
