@@ -1,13 +1,15 @@
-require('dotenv').config();
+require('dotenv').config()
 
-const express = require('express');
-const mongoose = require('mongoose');
-const characterRoutes = require('./routes/characters');
+const express = require('express')
+const cors = require('cors')
+const mongoose = require('mongoose')
+const characterRoutes = require('./routes/characters')
 
-const app = express();
+const app = express()
 
 // middleware stuff
-app.use(express.json());
+app.use(express.json())
+app.use(cors())
 
 app.use((req, res, next) => {
     console.log(req.path, req.method)
@@ -15,7 +17,7 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.use('/api/characters', characterRoutes);
+app.use('/api/characters', characterRoutes)
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)

@@ -1,9 +1,9 @@
 function HomePage() {
     return(
-        <body>
+        <main>
             <p>Home page</p>
-        </body>
-    );
+        </main>
+    )
 }
 
-export default HomePage;
+export default HomePage

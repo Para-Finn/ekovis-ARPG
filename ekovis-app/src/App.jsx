@@ -1,12 +1,10 @@
-import NavBar from '@/componets/Nav_Bar';
+import NavBar from '@/componets/Nav_Bar'
 
 function App() {
   
   return(
-    <body>
-      <NavBar />
-    </body>
-  );
+    <NavBar />
+  )
 }
 
 export default App
