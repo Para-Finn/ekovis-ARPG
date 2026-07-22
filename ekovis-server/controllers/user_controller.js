@@ -1,6 +1,28 @@
 const User = require('../models/user-model')
 const mongoose = require('mongoose')
 
+// Get all characters
+const getAllUsers = async (req, res) => {
+    const user = await User.find({}).sort({createdAt: -1})
+    res.status(200).json(user)
+}
+
+// Get a particular character
+const getOneUser = async (req, res) => {
+    const {id} = req.params
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: 'Dude, this isnt even a mongo id >:('})
+    }
+
+    const user = await User.findById(id)
+
+    if (!user) {
+        return res.status(404).json({error: 'I cant find this character :('})
+    }
+
+    res.status(200).json(user) 
+}
+
 //create a new user
 const createNewUser = async (req, res) => {
     const {username, password, role, currency} = req.body
@@ -46,6 +68,8 @@ const updateUser = async (req, res) => {
 }
 
 module.exports = {
+    getAllUsers,
+    getOneUser,
     createNewUser,
     deleteUser,
     updateUser

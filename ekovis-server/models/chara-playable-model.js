@@ -22,9 +22,9 @@ const charaPlayableSchema = new Schema(
 
         xp: {
             type: Number,
-            default: 0,
+            default: 0.0,
             required: true
-        },
+        }, 
 
         featrued: {
             type: Boolean,

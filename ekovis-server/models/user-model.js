@@ -27,6 +27,14 @@ const userSchema = new Schema(
             type: Number,
             default: 0,
             required: true
+        },
+
+        inventroy: {
+            type: Array,
+        },
+
+        ownedcharacters: {
+            type: Object
         }
     }
 )

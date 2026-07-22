@@ -18,14 +18,15 @@ const Masterlist = () => {
     }, [])
 
     return (
-        <div className="masterlist">
+        <div>
             <h2>Masterlist</h2>
-            <div className="characters">
+            <div>
                 {chara && chara.map((character) => (
                     <CharacterDetails key={character._id} character={character}/> 
                 ))}
             </div>
         </div>
-    )}
+    )
+}
 
 export default Masterlist
